@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery的prop 方法练习</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        .class1 {
+            width: 100px;
+            height: 100px;
+            background-color: red
+        }
+
+        .class2 {
+            border: 10px solid gray
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            //    addClass() 
+            //    removeClass() 
+            //    toggleClass() 
+            $('button')[0].onclick = function () {
+                $('div').addClass('class1 class2')
+            }
+            $('button')[1].onclick = function () {
+                $('div').removeClass('class2 ')
+            }
+            $('button')[2].onclick = function () {
+                $('div').toggleClass('class1')
+            }
+
+        })
+    </script>
+
+</body>
+<button>添加</button>
+<button>删除</button>
+<button>切换</button>
+<div class=''>
+
+</div>
+
+</html>

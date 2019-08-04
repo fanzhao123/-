@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery事件绑定</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            function test1() {
+                alert('hello')
+            }
+            function test2() {
+                alert('hello111')
+            }
+            // 事件移除
+            $('button').click(test1)
+            $('button').click(test2)
+            $('button').mouseleave(function(){
+                alert('heool mouseleave')
+            })
+            $('button').mouseenter(function(){
+                alert('hello mouseenter')
+            })
+            // 移除所有事件 
+            // $('button').off()
+            // // 传递一个参数 移除click所有事件
+            // $('button').off('click')
+            // 传递2个参数 移除click 指定事件所有事件
+            $('button').off('click',test1)
+
+        })
+    </script>
+
+    <button>按钮</button>
+</body>
+
+</html>

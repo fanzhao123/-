@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery入口函数的区别</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <script>
+        // window.onload=function(){
+        //     var img=document.getElementsByTagName('img')[0]
+        //     console.log(img)
+        //     var width=window.getComputedStyle(img).width
+        //     console.log('onload',width)
+        // }
+        // $(document).ready(function(){
+        //     var $img=$('img')[0]
+        //     console.log($img)
+        //     // 不可以拿到dom元素宽高不等图片加载完
+        //     var $width=$img.width()
+        //     console.log("ready",$width)
+        // })
+
+            // window.onload=function(){
+            //     alert('hell1')
+            // }
+            // window.onload=function(){
+            //     alert('hell2')
+            // }//原生把1覆盖
+                $(document).ready(function(){
+                    alert("hello1")
+                })
+                $(document).ready(function(){
+                    alert("hello2")
+                })//不会覆盖
+    </script>
+   <img src="https://img.alicdn.com/tfs/TB1.iiKa1T2gK0jSZFvXXXnFXXa-990-400.jpg_1080x1800Q90s50.jpg" alt=""> 
+</body>
+</html>

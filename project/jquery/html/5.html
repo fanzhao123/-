@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>核心函数</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        // $()
+        // 1.接受一个函数
+        $(function () {
+            alert('111')
+            // 2.接受一个字符串选择器,返回jquery对象
+            var $box1 = $('.box1')
+            // 2.接受一个字符串选择器,返回jquery对象
+            // 3.接受一个代码片段
+            var $p = $('<p>我是段落</p>')
+            $box1.append($p)
+            // 4.接受一个dom元素
+            // 包装成jquery对象
+            var span=document.getElementsByTagName('span')[0];
+            console.log(span);
+            var $span=$(span);
+            console.log($span)
+        })
+    </script>
+
+    <html>
+    <div class="box1"></div>
+    <span>我说打</span>
+
+    </html>
+</body>
+
+</html>

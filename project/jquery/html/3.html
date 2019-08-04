@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery入口函数其他写法</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        // 1.
+        $(document).ready(function () {
+            alert("hello1")
+        })
+        // 2.
+        jQuery(document).ready(function () {
+            alert("hello1")
+        })
+        // 3.推荐
+        $(function () {
+            alert("hello1")
+        })
+        // 4.
+        jQuery(function(){
+                    alert("hello1")
+                })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery事件命名空间面试题</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        .father{
+            width:200px;
+            height:200px;
+            background-color: red
+        }
+        .son{
+            width:100px;
+            height:100px;
+            background-color: blue
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            
+            $('.father').on('click.zs',function(){
+                alert('father1');
+            })
+            $('.father').on('click',function(){
+                alert('father2');
+            })
+            $('.son').on('click.zs',function(){
+                alert('son2');
+            })
+            // $('.son').trigger('click.zs')
+            // // 带相同命名空间的也会被触发
+            // 触发子元素不带命名空间的事件，子元素所有相同类型的事件和父元素相同类型的事件也会触发
+            $('.son').trigger('click')
+
+        })
+    </script>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <a href="http://www.baidu.com"><span>百度</span>></a>
+    <form action="http://taobao.com">
+        <input type="text">
+        <input type="submit">
+    </form>
+    
+</body>
+
+</html>

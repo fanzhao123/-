@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery事件委托</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            $('button').click(function(){
+                $('ul').append('<li>我是新增的li</li>');
+            })
+            //会自动便利找到的所有元素病绑定事件
+            //新增元素没有绑定上事件
+            // $('ul>li').click(function(){
+            //     console.log($(this).html())
+            // })
+            $('ul').delegate('li','click',function(){
+                console.log($(this).html())
+            })
+        })
+    </script>
+
+    <ul>
+        <li>第一个li</li>
+        <li>第2个li</li>
+        <li>第3 个li</li>
+    </ul>
+    <button>add li</button>
+</body>
+
+</html>

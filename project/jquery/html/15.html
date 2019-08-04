@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery的prop 方法练习</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            $('button')[0].onclick=function(){
+                var text=$('input')[0].value
+                $('img').attr('src',text)
+            }
+        })
+    </script>
+    <input type="text">
+    <button>切换图片</button>
+    <img src="https://i0.hdslb.com/bfs/sycp/creative_img/201907/8b4660dbc3720e17bc3d90a9f6226910.jpg" alt="">
+</body>
+
+</html>

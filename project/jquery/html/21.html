@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery scrolltop</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <style>
+        *{margin: 0;padding:0}
+        .scroll{
+            width:100px;
+            height:200px;
+            border:1px solid gray;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            // 获取滚动便宜位
+            $('button')[0].onclick=function(){
+                // console.log($('.scroll').scrollTop())
+                // 获取网页偏移位
+                console.log($('body').scrollTop()+$('html').scrollTop())
+            }
+            // 设置滚动便宜位
+            $('button')[1].onclick=function(){
+            //    $('.scroll').scrollTop(300)
+            // 设置网页滚动偏移位
+            $('html,body').scrollTop(300)
+            }
+            
+
+            
+        })
+    </script>
+<div class="scroll">
+        握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士握手阿基里斯东莞巴士
+</div>
+    <button>获取</button>
+    <button>设置</button>
+</body>
+
+</html>

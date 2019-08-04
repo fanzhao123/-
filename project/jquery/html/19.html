@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery操作css</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            $('div').css('width', '100px')
+            $('div').css('height', '100px')
+            $('div').css('background', 'red')
+
+            // 链式操作
+            $('div').css('width','100px').css('height', '100px').css('background', 'blue')
+
+            // 批量操作,推荐使用
+            $('div').css({
+                width:'100px',
+                height:'100px',
+                background:'red'
+                
+            })
+
+            // 获取
+            console.log($('div').css('background'))
+        })
+    </script>
+
+    <div></div>
+</body>
+
+</html>

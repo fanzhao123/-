@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery自定义事件</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        .father{
+            width:200px;
+            height:200px;
+            background-color: red
+        }
+        .son{
+            width:100px;
+            height:100px;
+            background-color: blue
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            // $('.son').myClick(function(event){
+            //     alert('son');
+            // })//不能响应
+
+            // 自定义事件 满足条件 on 绑定 trigger触发
+            $('.son').on('myClick',function(event){
+                alert('son');
+            })
+            $('.son').trigger('myClick')
+            
+        })
+    </script>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <a href="http://www.baidu.com"><span>百度</span>></a>
+    <form action="http://taobao.com">
+        <input type="text">
+        <input type="submit">
+    </form>
+    
+</body>
+
+</html>

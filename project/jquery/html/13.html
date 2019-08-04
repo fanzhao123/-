@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery的attr方法</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            // 无论找到多少个 都已第一个为准
+            // console.log(('span').attr('class'))
+            // 找到多少就设置多少个
+            $('span').attr('class','box')
+
+            // 设置的节点不存在，自动增加属性
+            $('span').attr('asd','123')
+            // 删除节点 删除多个
+            $('span').removeAttr('class name')
+
+
+        })
+    </script>
+    <span class="span1" name="id111"></span>
+    <span class="span2" name="id222"></span>
+</body>
+
+</html>

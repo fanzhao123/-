@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery阻止冒泡，默认行为</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        .father{
+            width:200px;
+            height:200px;
+            background-color: red
+        }
+        .son{
+            width:100px;
+            height:100px;
+            background-color: blue
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            // $('.son').click(function(event){
+            //     alert('son');
+            //     event.stopPropagation()
+            //     // return false
+            // })
+            // $('.father').click(function(){
+            //     alert('father')
+            // })
+            $('a').click(function(e){
+                alert('注册')
+                // return false
+                e.preventDefault()
+            })
+            
+        })
+    </script>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <a href="http://www.baidu.com">百度</a>
+    <form action="http://taobao.com">
+        <input type="text">
+        <input type="submit">
+    </form>
+    
+</body>
+
+</html>

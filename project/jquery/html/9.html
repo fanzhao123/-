@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>其他惊天方法</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <script>
+        // 去除空格
+        // var str="   swssd   ";
+        // var res=$.trim(str) 
+        // console.log(str)   
+        // console.log(res)  
+        var arr=[1,2,34,6,6]
+        var arrlike={0:1,1:3,2:34,3:234,length:4}
+
+        var obj={"name":"iii","age":22}
+        var fn=function(){
+
+        }
+        var w=window
+
+        // 判断是否属于window
+       var res= $.isWindow(arr)
+       console.log(res)//false
+
+        // 是否属于对象、数组、方法
+       var res= $.isArray(arr)
+       console.log(res)//true
+
+
+    //    jquery是匿名函数
+    (function(window,undefined){
+
+    })(window)
+    </script>
+</body>
+</html>

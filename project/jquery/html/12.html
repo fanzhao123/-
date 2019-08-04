@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>属性节点</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            // 属性
+            // function Person(){
+
+            // };
+            // var p=new Person()
+            // p["name"]='zs';
+            // console.log(p["name"])
+
+            // 操作属性节点
+            var span = document.getElementsByTagName('span')[0];
+            span.setAttribute('name', '123123')
+            console.log(span.getAttribute('name'))
+        })
+    </script>
+    <span name="1121"></span><!-- 标签内添加的就是属性节点name  attribute属性中  -->
+</body>
+
+</html>

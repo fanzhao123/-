@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <script src='./js/jquery.min.js'></script>
+        <script src='./js/popper.min.js'></script>
+        <script src='./js/bootstrap.min.js'></script>
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+    我是父组件
+        <!-- 引入子组件 -->
+        <son @jieshou="get"></son>
+        {{msg}}
+    </div>
+    <template id="son">
+        <div>
+            <span> 我是子组件</span>
+            <button @click="onclickme">click me</button>
+        </div>
+    </template>
+    <script>
+        var son={
+            template:"#son",
+            data(){
+                return{
+                    msg:"给父组件传值"
+                }
+            },
+            methods: {
+                onclickme(){
+                    this.$emit("jieshou",this.msg)
+                }
+            }
+        }
+
+        var  vm =new Vue({
+        el: "#app",
+        data: {
+            msg:""
+        },
+        compoments:{
+            son
+        },
+        methods: {
+            get(data){
+                this.msg=data
+            }
+        }
+        })
+    </script>
+</body>
+</html>

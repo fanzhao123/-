@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery的prop removeProp方法</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            // 设置 和attr一样
+            $('span').eq(0).prop('demo','id123')
+            // 查找
+            $('span').prop('demo')
+            // removeProp 与removeattr
+            $('span').removeProp('demo')
+
+            // 注意点 prop可以操作属性和属性节点
+            console.log($('span').prop('class'))
+            $('span').prop('class','box')
+
+            console.log($('input').prop('checked'))//false  推荐selected checked的时候使用prop
+            console.log($('input').attr('checked'))//undefined
+        })
+    </script>
+    <span class="span1" name="id111"></span>
+    <span class="span2" name="id222"></span>
+
+    <input type="checkbox" >
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Document</title>
+  <!-- <script src="vue1.js"></script> -->
+  <!-- 请引入Vue.js -->
+  <script src='https://cdn.jsdelivr.net/npm/vue'></script>
+</head>
+
+<body>
+  <!-- 爸爸的模板 -->
+  <div id="app">
+    <son :frombaba="msg"> </son>
+    <!-- 在爸爸的模板中 引入儿子的模板,绑定上爸爸的数据,frombaba随便取的自调用属性 -->
+  </div>
+  <!-- 儿子的模板 -->
+  <template id="son">
+    <div>
+      {{frombaba}}
+    </div>
+  </template>
+
+  <script>
+    //儿子
+    let son = {
+      template: "#son",
+      props: {
+        frombaba: String //儿子的兜兜
+      }
+    }
+    //爸爸
+    let vm = new Vue({
+      el: "#app",
+      data: {
+        msg: '来着老子的爱' //爸爸的数据
+      },
+      methods: {},
+      components: {
+        son: son
+      }
+    })
+  </script>
+</body>
+
+</html>
