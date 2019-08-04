@@ -1,0 +1,73 @@
+$(function() {
+	var t = new TimelineMax();
+	var wow = new WOW({
+		boxClass: 'wow',
+		animateClass: 'animated',
+		offset: 200,
+		mobile: true,
+		live: true
+	});
+	wow.init();
+// 	var nheight = $('.nav_w').height();
+// 	var oheight = $(window).height() - nheight;
+// 	$('#banner').css('height',oheight);
+// 		$(window).resize(function() {
+// 		var oheight = $(window).height() - nheight;
+// 		$('#banner').css('height', oheight);
+// 	});
+
+	$('.foot_swid').on('click', '.icon_w li', function() {
+		$('.tips_w li').eq($(this).index()).addClass('on animated swing').siblings().removeClass();
+	})
+
+	$(document).on('click', '.downs', function() {
+		$("html,body").animate({
+			scrollTop: oheight + nheight + 'px'
+		}, 1200, 'easeInOutExpo');
+	});
+
+	var swiper = new Swiper('.swiper-container', {
+		autoplay: 3000,
+		speed: 1000,
+		pagination: '.swiper-pagination',
+		loop: true,
+		 paginationClickable :true,
+		nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+		autoplayDisableOnInteraction: false,
+	});
+
+
+
+
+$(document).ready(function () {
+            $.goup({
+
+                trigger: 100,
+
+                bottomOffset: 100,
+
+                locationOffset: 20,
+
+                title: '',
+
+                titleAsText: true
+
+            });
+
+        });
+        
+    $(window).scroll(function(){  
+        var oh =$(window).scrollTop();
+        var hh =$('.navbar').outerHeight();
+        if(oh>(hh*2)){
+            $('.navbar').addClass('dw');
+        }else{
+            $('.navbar').removeClass('dw');
+        }
+    });
+})
+
+$('.foot .wc').click(function(){
+   $(".wechat").toggle();
+})

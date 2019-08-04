@@ -1,0 +1,113 @@
+.container::after {
+    display: table;
+    content: " ";
+}
+
+.container::before {
+    display: table;
+    content: " ";
+}
+
+.container {
+    padding: 0;
+    width: 80% !important;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.content {
+    border-bottom: 1px solid #bdbdbd !important;
+}
+
+.subtitle {
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0 3% 0 33px !important;
+    padding: 3% 0;
+    font-size: 30px !important;
+    color: #505050;
+    cursor: pointer;
+}
+
+/* details导航部分 */
+.nav_title {
+    padding: 2% 0 1% 0;
+    overflow: hidden;
+}
+
+.nav_title>div>span.col-lg-3 {
+    position: relative;
+}
+
+.nav_title span {
+    display: inline-block;
+    padding: 0;
+    margin-bottom: 1%;
+}
+
+.nav_title span a {
+    display: block;
+    width: 100%;
+    background: #F9F9F9;
+    padding: 2% 0px;
+    padding-right: 1%;
+    padding-left: 2%;
+    color: black;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.nav_title .active a {
+    background-color: gainsboro;
+}
+
+.ic::before {
+    content: ">";
+    
+}
+/* .nav_title>div .ic{
+    position: absolute;
+    top: -17%;
+    right: 10%;
+    font-weight: bold;
+    font-size: 30px;
+} */
+/* 中间图片 */
+
+.detail_img .col-xl-3{
+    position: relative;
+    overflow: hidden;
+    padding: 3px;
+}
+/* 鼠标移入div显示 */
+.hide{
+    display: none;
+    position: absolute;
+    padding: 4% 0 0 6%;
+    display: block;
+    top: 2px;
+    width: 99%;
+    height: 99%;
+    background: rgba(169,173,177,0.5);
+}
+.hide:hover{
+    display: block;
+}
+.hide a{
+    margin-top: 14px;
+}
+.hide span{
+    display: block;
+    font-size: 23px;
+    color: white;
+    margin-bottom: 2%;
+}
+.hide .a{
+    font-size: 14px;
+    color: white;
+    padding: 2% 12% 2% 5%;
+    border: 1px solid white;
+    width: 36%;
+}

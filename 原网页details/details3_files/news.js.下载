@@ -1,0 +1,134 @@
+    $(function(){
+        var wow = new WOW({
+			boxClass: 'wow',
+			animateClass: 'animated',
+			offset: 0,
+			mobile: true,
+			live: true
+		});
+		wow.init();
+		
+            var page = 1;
+			var finished = 0;
+			var sover = 0;
+			var setdefult = setInterval(function() {
+				if(sover == 1)
+					clearInterval(setdefult);
+				else if($(".prolist").height() < $(window).height())
+					loadmore($(window));
+				else
+					clearInterval(setdefult);
+			}, 500);
+
+			function loadover() {
+				if(sover == 1) {
+					var overtext = "没有更多了";
+					$(".loadmore").remove();
+					if($(".loadover").length > 0) {
+						$(".loadover span").eq(0).html(overtext);
+					} else {
+						var txt = '<div class="loadover" style="text-align: center;padding: 3%;font-size: 16px;"><span>' + overtext + '</span></div>'
+						$(".listwrap").append(txt);
+					}
+				}
+			}
+
+			var vid = 0;
+
+			function loadmore(obj) {
+				if(finished == 0 && sover == 0) {
+					$(document).scrollTop(function() {
+						var scrollTop = $(obj).scrollTop();
+						var scrollHeight = $(document).height();
+						var windowHeight = $(obj).height();
+						if(scrollTop + windowHeight - scrollHeight > -100) {
+							if($(".loadmore").length == 0) {
+								var txt = '<div class="loadmore"><span class="loading"></span></div>'
+								$("body").append(txt);
+							}
+							finished = 1;
+							$.post("http://www.dalusj.com/obtain_like_article_by_title$ajax.htm?time=2017&keyword=xin_wen&isDelete=-1&_orderby=issueTime desc", function(e) {
+							    var result ='';
+								var r = JSON.parse(e).result[page];
+								console.log(r);
+								var dt=new Date(r.issueTime.replace(/\-/g, "/"));
+								var year = dt.getFullYear();
+                                var deta=dt.getDate();
+                                var mon=dt.getMonth()+1
+								for(var i = 0; i < 1; i++) {
+									vid++;
+									result +=
+										'<div class="news_w wow fadeInUp">' +
+										'<div><a href="/go.htm?url=news_details&i='+r.id+'"><img src="res/default/image/pic.jpg" /></a></div>' +
+										'<div class="wow fadeInUp" >' +
+										'<a href="/go.htm?url=news_details&i='+r.id+'"><div class="news_tit">'+r.title+'</div></a>'+
+    									'<div class="news_time">'+year+"-"+mon+"-"+deta+'</div>' +
+    									'<div class="news_cont">'+r.describes+'</div>' +
+    									'<a class="news_more" href="/go.htm?url=news_details&i='+r.id+'">+了解更多</a>' +
+    									'</div>' +
+    									'</div>' 
+							    	}
+								$(".loadmore").remove();
+								$('.listwrap').append(result);
+								page += 1;
+								finished = 0;    
+								if(page == JSON.parse(e).result.length) {
+									sover = 1;
+									loadover();
+								}
+							});
+						}
+					})
+				}
+			}
+			//页面滚动执行事件
+			$(window).scroll(function() {
+				loadmore($(this));
+			});
+			$(document).on('keyup','#search',function(){
+			    if(event.keyCode == 13){ 
+			        var v = $(this).val();
+			        var t = $('#time').val();
+			        if(v==''){
+			            $('.listwrap').css('display','block');
+			             $('.listwrap_s').css('display','none');
+			        }else{
+			            $('.listwrap').css('display','none');
+			              $('.listwrap_s').css('display','block');
+			        }
+                	$.post("http://www.dalusj.com/obtain_like_article_by_title$ajax.htm?time="+t+"&keyword=xin_wen&title="+v+"", function(e) {
+                	        	$('.listwrap_s').empty();
+							    var result ='';
+							    var d = JSON.parse(e).result;
+							   if(d.length>0){
+							       for(var i = 0;i<d.length;i++){
+							         var dt=new Date(d[i].issueTime.replace(/\-/g, "/"));
+    								var year = dt.getFullYear();
+                                    var deta=dt.getDate();
+                                    var mon=dt.getMonth()+1
+							        	result +=
+										'<div class="news_w wow fadeInUp">' +
+										'<div><img src="res/default/image/pic.jpg" /></div>' +
+										'<div class="wow fadeInUp" >' +
+										'<div class="news_tit">'+d[i].title+'</div>'+
+										'<div class="news_time">'+year+"-"+mon+"-"+deta+'</div>' +
+    									'<div class="news_cont">'+d[i].describes+'</div>' +
+    									'<a class="news_more" href="/go.htm?url=news_details&i='+d[i].id+'">+了解更多</a>' +
+    									'</div>' +
+    									'</div>' 
+							    	} 
+							   }else{
+							       console.log(d.length);
+							       result='<div style="text-align: center;margin: 15px;min-height: 655px;">抱歉暂无相关搜索内容</div>'
+							   }
+							   
+							    	console.log(result);
+							    	$('.listwrap_s').append(result);
+							    }
+							   
+							);	          
+	          
+			}
+			})
+    })
+	
