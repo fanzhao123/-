@@ -1,0 +1,115 @@
+.footer {
+    height: 87px;
+    /* overflow: hidden; */
+    width: 100%;
+    min-height: 87px;
+    background: #333333;
+    position: relative;
+}
+.footer>div a{
+    color:white;
+}
+.footer>div{
+    width: 100%;
+    height: 100%;
+    line-height: 87px;
+    color: white;
+    float: left;
+}
+.icon_w li {
+    float: left;
+    cursor: pointer;
+    margin-right: 16px;
+}
+.icon_w li img{
+    vertical-align: middle;
+}
+.tips_w li{
+    display: none;
+}
+.tips_w li.active{
+    display: block;
+}
+.footer::before {
+    height: 11px;
+    content: '';
+    width: 100%;
+    position: absolute;
+    bottom: 76px;
+    left: 0;
+    background: url(../img/footer_line.png);
+}
+.footer::after {
+    height: 11px;
+    content: '';
+    width: 100%;
+    position: absolute;
+    top:76px;
+    left: 0;
+    background: url(../img/footer_line.png);
+}
+
+
+@media screen and (max-width:1200px){
+    .foot_left{
+        display: none;
+    }
+    .foot_middle{
+        width:50%;
+        padding-left: 85px;
+    }
+    .foot_right{
+        width:50%;
+        padding-left: 90px;
+    }
+}
+@media screen and (max-width:992px){
+    .foot_middle,.foot_right{
+        display: none;
+    }
+    .footer{
+        height:170px;
+    }
+    .footer .small {
+        width: 100% !important;
+        display: block !important;
+        line-height: 34px !important;
+        position: absolute;
+        color:white;
+        padding:15px; 
+    }  
+    .small{
+        font-size:90%;
+    }
+    .small span {
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+    .footer::before {
+        top:0px;
+    }
+    .footer::after {
+        top:160px;
+    }
+}
+/* 点击微信图标出现？？？？？？？？？？？ */
+.wechat {
+    /* display: none; */
+    top: -160px;
+    transition: all 0.4s cubic-bezier(.165, .74, .44, 1);
+    /* transition: all 0.4s cubic-bezier(.165, .74, .44, 1); */
+    position: absolute;
+    /* top: -80px; */
+    left: 104px;
+    
+}
+/* 点击小图标相对应的地址电话出现？？？？？？？？？？？ */
+
+/* .animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    transform-origin: top center;
+    animation-name:swing;
+    
+} */
